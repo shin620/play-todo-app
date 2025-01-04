@@ -2,16 +2,22 @@ body {
   background-color: #1e1e2f;
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
 }
 
 h1 {
   color: #4caf50;
   text-align: center;
+  margin-top: 20px;
 }
 
 ul {
   list-style: none;
   padding: 0;
+  margin: 20px auto;
+  max-width: 600px;
 }
 
 li {
@@ -24,10 +30,37 @@ li {
   align-items: center;
 }
 
-li a {
-  color: #f44336;
+li > a {
+  color: #ffffff;
+  background-color: #f44336;
+  padding: 5px 10px;
+  border-radius: 5px;
   text-decoration: none;
+  font-size: 0.9rem;
   font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+li > a:hover {
+  text-decoration: underline;
+  background-color: #d32f2f;
+}
+
+li.completed {
+  background-color: #3a3a4f;
+}
+
+li.completed > span {
+  color: #b0b0b0;
+  text-decoration: line-through;
+}
+
+li.completed > a {
+  background-color: #4caf50;
+}
+
+li.completed > a:hover {
+  background-color: #388e3c;
 }
 
 form {
@@ -50,10 +83,19 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #45a049;
 }
+
+p {
+  margin: 64px 0 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4caf50;
+  text-align: center;
+}
+
 

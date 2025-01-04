@@ -21,8 +21,8 @@
   <p>done</p>
   <ul>
     @for(todo <- todos.zipWithIndex.filter(_._1.completed)) {
-      <li>
-        @todo._1.title
+      <li class="completed">
+        <span>@todo._1.title</span>
         <a href="@routes.TodoController.switch(todo._2)">[Undo]</a>
       </li>
     }
