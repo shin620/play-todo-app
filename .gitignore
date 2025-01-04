@@ -5,7 +5,9 @@ target
 /.idea
 /.idea_modules
 /.classpath
+/.g8
 /.project
 /.settings
 /.metals
+/.vscode
 /RUNNING_PID
