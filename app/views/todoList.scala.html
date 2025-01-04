@@ -1,25 +1,7 @@
-@(todos: List[models.Todo])(implicit request: play.api.mvc.RequestHeader)
+@(todos: scala.collection.mutable.ArrayBuffer[models.Todo])(implicit request: play.api.mvc.RequestHeader)
 
 @main("TODO List") {
-
   <h1>TODO List</h1>
-  <ul>
-    @for(todo <- todos.filter(!_.completed)) {
-      <li>
-        @todo.title
-        <a href="@routes.TodoController.remove(todo.id)">[Delete]</a>
-      </li>
-    }
-  </ul>
-
-  <p>done</p>
-  <ul>
-    @for(todo <- todos.filter(_.completed)) {
-      <li>
-        @todo.title
-      </li>
-    }
-  </ul>
 
   <form method="POST" action="@routes.TodoController.add()">
     @helper.CSRF.formField
@@ -27,5 +9,23 @@
     <button type="submit">Add</button>
   </form>
 
+  <ul>
+    @for(todo <- todos.zipWithIndex.filter(!_._1.completed)) {
+      <li>
+        @todo._1.title
+        <a href="@routes.TodoController.switch(todo._2)">[Done]</a>
+      </li>
+    }
+  </ul>
+
+  <p>done</p>
+  <ul>
+    @for(todo <- todos.zipWithIndex.filter(_._1.completed)) {
+      <li>
+        @todo._1.title
+        <a href="@routes.TodoController.switch(todo._2)">[Undo]</a>
+      </li>
+    }
+  </ul>
 }
 

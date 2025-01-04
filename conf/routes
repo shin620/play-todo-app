@@ -5,7 +5,7 @@
 
 GET     /               controllers.TodoController.list()
 POST    /add            controllers.TodoController.add()
-GET     /remove/:id     controllers.TodoController.remove(id: Int)
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET     /switch/:id     controllers.TodoController.switch(id: Int)
+GET     /assets/*file   controllers.Assets.versioned(path="/public", file: Asset)
 
 

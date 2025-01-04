@@ -1,3 +1,3 @@
 package models
 
-case class Todo(id: Int, title: String, completed: Boolean)
+case class Todo(title: String, completed: Boolean)
