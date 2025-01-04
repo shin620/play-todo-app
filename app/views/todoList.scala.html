@@ -1,0 +1,31 @@
+@(todos: List[models.Todo])(implicit request: play.api.mvc.RequestHeader)
+
+@main("TODO List") {
+
+  <h1>TODO List</h1>
+  <ul>
+    @for(todo <- todos.filter(!_.completed)) {
+      <li>
+        @todo.title
+        <a href="@routes.TodoController.remove(todo.id)">[Delete]</a>
+      </li>
+    }
+  </ul>
+
+  <p>done</p>
+  <ul>
+    @for(todo <- todos.filter(_.completed)) {
+      <li>
+        @todo.title
+      </li>
+    }
+  </ul>
+
+  <form method="POST" action="@routes.TodoController.add()">
+    @helper.CSRF.formField
+    <input type="text" name="title" placeholder="Add a new task" required>
+    <button type="submit">Add</button>
+  </form>
+
+}
+
